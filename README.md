@@ -33,20 +33,22 @@ Unlike claiming to be "100% Private" without proof, we built a verifiable **Zero
 - **Beautiful & Intuitive:** A clean, B2B glassmorphism interface.
 - **$0 Infrastructure:** Host it anywhere as static files.
 
-## ⚡ How to run it locally
+## ⚡ How to run it locally (For Users & Devs)
 Since there are no servers, dependencies, or build-steps required:
 1. Clone the repo:
    ```bash
-   git clone https://github.com/yourusername/csv2qbo.git
+   git clone https://github.com/artem95304/quickbooks-csv-importer.git
    ```
-2. Double-click `index.html` to open it in your browser.
+2. Open the `src` folder and double-click `index.html` to open it in your browser.
 3. Start converting!
 
-## 🌍 Ready for Deployment
-Ready for personal, internal, and evaluation deployment on any static hosting.
+## 🌍 Quick Deployment (For Devs & Evaluation)
+This section is for developers or IT administrators who want to deploy the tool internally for their organization. 
 
+Ready for personal, internal, and evaluation deployment on any static hosting.
 Commercial hosting, client delivery, and paid service usage require a separate commercial license from the author.
 ```bash
+cd src
 npm i -g vercel
 vercel --prod
 ```
