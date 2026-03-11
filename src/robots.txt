@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://quickbooks-csv-importer.vercel.app/sitemap.xml
