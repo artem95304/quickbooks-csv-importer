@@ -1,8 +1,8 @@
 <div align="center">
   <h3>✨ QuickBooks CSV Importer: Secure Client-Side Tool ✨</h3>
-  <p>Import your bank CSV transactions into QuickBooks effortlessly by converting them to QBO format directly in your browser. <br>100% Private. 0 Servers. Open Source.</p>
+  <p>Import your bank CSV transactions into QuickBooks effortlessly by converting them to QBO format directly in your browser. <br>100% Private. 0 Servers. Source Available.</p>
 
-  [![Proprietary](https://img.shields.io/badge/License-Proprietary-red.svg)](#license)
+  [![License: PolyForm Noncommercial 1.0.0](https://img.shields.io/badge/License-PolyForm%20Noncommercial-blue.svg)](https://polyformproject.org/licenses/noncommercial/1.0.0/)
   [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 
 </div>
@@ -33,8 +33,10 @@ Since there are no servers, dependencies, or build-steps required:
 2. Double-click `index.html` to open it in your browser.
 3. Start converting!
 
-## 🌍 Quick Deployment
-Want to host it for your clients? It's ready for any static hosting.
+## 🌍 Ready for Deployment
+Ready for personal, internal, and evaluation deployment on any static hosting.
+
+Commercial hosting, client delivery, and paid service usage require a separate commercial license from the author.
 ```bash
 npm i -g vercel
 vercel --prod
@@ -47,10 +49,19 @@ Specifically, we'd love contributions for:
 - Support for complex debit/credit separate columns.
 - Dark mode toggle.
 
+> **Note on Pull Requests:** By contributing, you agree that your contributions may be used and relicensed by the project maintainer. A Contributor License Agreement (CLA) may be required for substantial contributions.
+
 ---
 *Built pragmatically for the indie maker and accounting community.*
 
+## Commercial Licensing
+
+If you want to use this project in a commercial setting, for client work, or as part of a paid product or service, contact the author for a commercial license.
+
 ## License
 
-**Proprietary License**
-All rights reserved. You may use this software as a hosted service on the provided platform. You are not permitted to copy, modify, distribute, sell, or rent any part of this software, its source code, or its design without explicit written permission from the author.
+This project is licensed under the **PolyForm Noncommercial License 1.0.0**.
+
+You may use, copy, modify, and share this software for noncommercial purposes, subject to the license terms.
+
+Commercial use, client work, paid services, hosted offerings, and redistribution as part of a commercial product or service require a separate commercial license from the author.
