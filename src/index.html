@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Strict CSP: Only allows local scripts, no external connections, no inline evaluation -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; connect-src 'none'; img-src 'self' data:; script-src 'self'">
     <title>Free QuickBooks CSV Import Tool | Convert Bank Statements Locally</title>
     <meta name="description" content="Securely convert and import CSV bank transactions into QuickBooks Online. 100% private, free tool that runs entirely in your browser. No servers.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -18,7 +20,7 @@
                 <span>QuickBooks CSV Importer</span>
             </div>
             <div class="header-badges">
-                <span class="badge privacy-badge">🔒 100% Private (Runs Locally)</span>
+                <span class="badge privacy-badge">🔒 Processed Locally (No Servers)</span>
             </div>
         </header>
 
@@ -98,7 +100,7 @@
             <p>Made for speed. No servers. No tracking.</p>
         </footer>
     </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+    <script src="papaparse.min.js"></script>
     <script src="app.js"></script>
 </body>
 </html>

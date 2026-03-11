@@ -88,7 +88,12 @@ document.addEventListener('DOMContentLoaded', () => {
         
         selects.forEach(id => {
             const selectContainer = document.getElementById(id);
-            selectContainer.innerHTML = '<option value="">-- Select Column --</option>';
+            selectContainer.innerHTML = ''; // safely clear
+            
+            const defaultOption = document.createElement('option');
+            defaultOption.value = "";
+            defaultOption.textContent = "-- Select Column --";
+            selectContainer.appendChild(defaultOption);
             
             headers.forEach(header => {
                 const option = document.createElement('option');
