@@ -1,14 +1,14 @@
 <div align="center">
-  <h3>✨ CSV2QBO: Secure Client-Side Converter ✨</h3>
-  <p>Convert your bank CSV statements to QBO formatting directly in your browser. <br>100% Private. 0 Servers. Open Source.</p>
+  <h3>✨ QuickBooks CSV Importer: Secure Client-Side Tool ✨</h3>
+  <p>Import your bank CSV transactions into QuickBooks effortlessly by converting them to QBO format directly in your browser. <br>100% Private. 0 Servers. Open Source.</p>
 
-  [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+  [![Proprietary](https://img.shields.io/badge/License-Proprietary-red.svg)](#license)
   [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 
 </div>
 
 ## 🚀 The Problem & Our Solution
-Bookkeepers, freelancers, and small business owners often struggle with banks that only export `.csv` files. Most accounting software (like QuickBooks and Xero) requires the Strict QBO / OFX format. 
+Bookkeepers, freelancers, and small business owners often struggle with banks that only export `.csv` files. Most accounting software (like QuickBooks and Xero) tightly restricts bank feed imports, making raw CSV imports difficult and requiring the Strict QBO / OFX format. 
 
 Most converters on the market either:
 1. Charge an absurd monthly fee (e.g. $40/mo) 
@@ -49,3 +49,8 @@ Specifically, we'd love contributions for:
 
 ---
 *Built pragmatically for the indie maker and accounting community.*
+
+## License
+
+**Proprietary License**
+All rights reserved. You may use this software as a hosted service on the provided platform. You are not permitted to copy, modify, distribute, sell, or rent any part of this software, its source code, or its design without explicit written permission from the author.
