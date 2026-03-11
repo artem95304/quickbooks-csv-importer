@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSV to QBO Converter | 100% Private, Client-Side</title>
+    <meta name="description" content="Securely convert your bank CSV files to QBO format for QuickBooks. 100% private, runs entirely in your browser.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <header>
+            <div class="logo">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16c0 1.1.9 2 2 2h12a2 2 0 0 0 2-2V8l-6-6z"/><path d="M14 3v5h5M16 13H8M16 17H8M10 9H8"/></svg>
+                <span>CSV2QBO</span>
+            </div>
+            <div class="header-badges">
+                <span class="badge privacy-badge">🔒 100% Private (Runs Locally)</span>
+            </div>
+        </header>
+
+        <main>
+            <div class="hero">
+                <h1>Convert CSV Bank Statements to QBO</h1>
+                <p>Import into QuickBooks seamlessly. No data leaves your browser. Zero cost.</p>
+            </div>
+
+            <div id="drop-zone" class="drop-zone">
+                <input type="file" id="file-input" accept=".csv" class="file-input">
+                <div class="drop-zone-content">
+                    <svg class="upload-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M17 8l-5-5-5 5M12 3v12"/></svg>
+                    <h3>Drag & Drop your CSV file here</h3>
+                    <p>or click to browse</p>
+                </div>
+            </div>
+
+            <div id="mapping-section" class="mapping-section hidden">
+                <h2>Map your columns</h2>
+                <p class="section-desc">We found <span id="row-count">0</span> transactions. Please match your CSV columns to QBO fields.</p>
+                
+                <div class="mapping-grid">
+                    <div class="mapping-row">
+                        <label for="map-date">Date <span class="required">*</span></label>
+                        <select id="map-date"></select>
+                    </div>
+                    <div class="mapping-row">
+                        <label for="map-amount">Amount <span class="required">*</span></label>
+                        <select id="map-amount"></select>
+                    </div>
+                    <div class="mapping-row">
+                        <label for="map-payee">Payee (Name)</label>
+                        <select id="map-payee"></select>
+                    </div>
+                    <div class="mapping-row">
+                        <label for="map-memo">Memo / Description</label>
+                        <select id="map-memo"></select>
+                    </div>
+                </div>
+
+                <div class="advanced-settings">
+                    <details>
+                        <summary>Advanced Bank Settings</summary>
+                        <div class="settings-grid">
+                             <div class="setting-row">
+                                <label for="bank-id">Bank ID / Routing</label>
+                                <input type="text" id="bank-id" value="123456789">
+                            </div>
+                            <div class="setting-row">
+                                <label for="account-id">Account ID</label>
+                                <input type="text" id="account-id" value="987654321">
+                            </div>
+                            <div class="setting-row">
+                                <label for="currency">Currency</label>
+                                <select id="currency">
+                                    <option value="USD">USD</option>
+                                    <option value="EUR">EUR</option>
+                                    <option value="CAD">CAD</option>
+                                    <option value="GBP">GBP</option>
+                                </select>
+                            </div>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="action-footer">
+                    <button id="convert-btn" class="primary-btn">Generate & Download .QBO</button>
+                    <button id="reset-btn" class="secondary-btn">Cancel</button>
+                </div>
+                
+                <div id="error-container" class="error-message hidden"></div>
+            </div>
+        </main>
+        
+        <footer>
+            <p>Made for speed. No servers. No tracking.</p>
+        </footer>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
