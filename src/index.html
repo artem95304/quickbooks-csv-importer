@@ -3,13 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Strict CSP: Only allows local scripts, no external connections, no inline evaluation -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; connect-src 'none'; img-src 'self' data:; script-src 'self'">
+    <!-- Strict CSP: Only allows local scripts and styles, zero external connections -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; connect-src 'none'; img-src 'self' data:; script-src 'self'">
     <title>Free QuickBooks CSV Import Tool | Convert Bank Statements Locally</title>
-    <meta name="description" content="Securely convert and import CSV bank transactions into QuickBooks Online. 100% private, free tool that runs entirely in your browser. No servers.">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <meta name="description" content="Convert bank CSV transactions to QBO locally in your browser. No backend uploads, no server-side processing, source-available.">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -20,10 +17,13 @@
                 <span>QuickBooks CSV Importer</span>
             </div>
             <div class="header-badges">
-                <span class="badge privacy-badge">🔒 Processed Locally (No Servers)</span>
+                <span class="badge privacy-badge">🔒 Processed Locally</span>
                 <a href="https://github.com/artem95304/quickbooks-csv-importer" target="_blank" rel="noopener noreferrer" class="badge github-badge" title="View Source Code">
-                    <svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                    <svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
                     Source Available
+                </a>
+                <a href="https://www.linkedin.com/in/artem-raichuk/" target="_blank" rel="noopener noreferrer" class="badge author-badge" title="About the author">
+                    Built by Artem
                 </a>
             </div>
         </header>
@@ -31,7 +31,8 @@
         <main>
             <div class="hero">
                 <h1>Import CSV Transactions into QuickBooks</h1>
-                <p>Convert your bank CSV to a QuickBooks-ready format. Free. Secure. Runs locally.</p>
+                <p>Convert bank CSV files to QBO locally in your browser. No backend uploads. Simple and privacy-conscious.</p>
+                <p class="trust-callout">💡 You can disable your Wi-Fi before clicking "Generate" — your .qbo file will still download instantly. Your financial data never leaves your machine.</p>
             </div>
 
             <div id="drop-zone" class="drop-zone">
@@ -101,7 +102,11 @@
         </main>
         
         <footer>
-            <p>Made for speed. No servers. No tracking.</p>
+            <p>
+                No server-side file processing. Built by <a href="https://www.linkedin.com/in/artem-raichuk/" target="_blank" rel="noopener noreferrer">Artem Raichuk</a> · 
+                <a href="https://www.linkedin.com/in/artem-raichuk/" target="_blank" rel="noopener noreferrer">LinkedIn</a> · 
+                <a href="https://github.com/artem95304" target="_blank" rel="noopener noreferrer">GitHub</a>
+            </p>
         </footer>
     </div>
     <script src="papaparse.min.js"></script>
