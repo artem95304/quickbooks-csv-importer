@@ -16,13 +16,22 @@ Most converters on the market either:
 
 **CSV2QBO** was built over a weekend to solve this. **It runs entirely in your browser.** You can literally disable your Wi-Fi before clicking "Generate" and your `.qbo` file will still download instantly. Your financial data *never* leaves your machine.
 
+## 🛡️ Trust & Security Architecture
+
+Unlike claiming to be "100% Private" without proof, we built a verifiable **Zero-Trust Client-Side** architecture. Financial data requires extreme caution:
+
+1. **Zero External Dependencies:** No CDNs. No Google Analytics. `PapaParse.js` is bundled locally.
+2. **Strict Content Security Policy (CSP):** The app's HTTP headers physically block the browser from making *any* external network requests (`connect-src 'none'`).
+3. **Safe DOM Injection:** We use secure `textContent` parsing instead of vulnerable `innerHTML` to prevent DOM XSS vulnerabilities from malicious CSV headers. 
+4. **Processed strictly in your browser's local memory.** Data never touches a backend.
+
 ## 🛠 Features
 
 - **Blazing Fast Parsing:** Powered by `PapaParse` to handle any CSV inconsistencies.
 - **Smart Auto-Mapping:** Automatically detects common column headers from major banks like Chase, Bank of America, and Amex.
 - **Visual Mapping UI:** If your CSV uses custom columns (like `MyMoney` or `Fecha`), our drag-and-drop UI lets you manually map your columns to QuickBooks' strict `[Date, Amount, Payee, Description]` requirements.
 - **Beautiful & Intuitive:** A clean, B2B glassmorphism interface.
-- **100% Client-Side:** `$0` infrastructure. Host it anywhere.
+- **$0 Infrastructure:** Host it anywhere as static files.
 
 ## ⚡ How to run it locally
 Since there are no servers, dependencies, or build-steps required:
