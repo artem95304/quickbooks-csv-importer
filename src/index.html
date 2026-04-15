@@ -5,11 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Strict CSP: Only allows local scripts and styles, zero external connections -->
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; connect-src 'none'; img-src 'self' data:; script-src 'self'">
-    <title>Free QuickBooks CSV Import Tool | Convert Bank Statements Locally</title>
-    <meta name="description" content="Convert bank CSV transactions to QBO locally in your browser. No backend uploads, no server-side processing, source-available.">
+    <title>CSV to QBO Converter for QuickBooks | Free & Private</title>
+    <meta name="description" content="Convert bank CSV statements to QuickBooks QBO locally in your browser. Supports common Chase, Bank of America, and Amex-style headers with no uploads or backend processing.">
+    <meta name="robots" content="index,follow,max-image-preview:large">
     <link rel="canonical" href="https://quickbooks-csv-importer.vercel.app">
-    <meta property="og:title" content="Free QuickBooks CSV Import Tool | No Uploads, No Servers">
-    <meta property="og:description" content="Convert bank CSV to QBO locally in your browser. No uploads, no servers, no tracking. Source-available.">
+    <meta property="og:title" content="CSV to QBO Converter for QuickBooks | No Uploads">
+    <meta property="og:description" content="Convert bank CSV statements to QBO locally in your browser. Privacy-first, browser-only, and built for real bank export headers.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://quickbooks-csv-importer.vercel.app">
     <link rel="stylesheet" href="styles.css">
@@ -35,9 +36,14 @@
 
         <main>
             <div class="hero">
-                <h1>Import CSV Transactions into QuickBooks</h1>
-                <p>Convert bank CSV files to QBO locally in your browser. No backend uploads. Simple and privacy-conscious.</p>
-                <p class="trust-callout">💡 You can disable your Wi-Fi before clicking "Generate" — your .qbo file will still download instantly. Your financial data never leaves your machine.</p>
+                <h1>CSV to QBO Converter for QuickBooks</h1>
+                <p>Convert bank CSV statements to QBO locally in your browser. No backend uploads, no account signup, no cloud processing.</p>
+                <p class="trust-callout">Load this page once while online, then you can disconnect Wi-Fi before clicking "Generate". For a fully local copy, download the ZIP and open <code>src/index.html</code> on your computer.</p>
+                <div class="hero-links">
+                    <a href="https://github.com/artem95304/quickbooks-csv-importer/archive/refs/heads/main.zip" target="_blank" rel="noopener noreferrer" class="hero-link hero-link-primary">Download Offline ZIP</a>
+                    <a href="https://github.com/artem95304/quickbooks-csv-importer" target="_blank" rel="noopener noreferrer" class="hero-link">View Source</a>
+                </div>
+                <p class="compatibility-note">Common CSV headers supported include <code>Date</code>, <code>Description</code>, <code>Amount</code>, <code>Debit</code>, <code>Credit</code>, <code>Balance</code>, plus card and processor exports such as <code>Transaction Date</code>, <code>Posting Date</code>, <code>Billing Amount</code>, <code>Merchant Name</code>, <code>Net</code>, and <code>created</code>.</p>
             </div>
 
             <div id="drop-zone" class="drop-zone">
@@ -59,8 +65,16 @@
                         <select id="map-date"></select>
                     </div>
                     <div class="mapping-row">
-                        <label for="map-amount">Amount <span class="required">*</span></label>
+                        <label for="map-amount">Amount (single column)</label>
                         <select id="map-amount"></select>
+                    </div>
+                    <div class="mapping-row">
+                        <label for="map-debit">Debit (optional)</label>
+                        <select id="map-debit"></select>
+                    </div>
+                    <div class="mapping-row">
+                        <label for="map-credit">Credit (optional)</label>
+                        <select id="map-credit"></select>
                     </div>
                     <div class="mapping-row">
                         <label for="map-payee">Payee (Name)</label>
@@ -71,6 +85,7 @@
                         <select id="map-memo"></select>
                     </div>
                 </div>
+                <p class="mapping-note">Use either one signed <code>Amount</code> column or separate <code>Debit</code> and <code>Credit</code> columns.</p>
 
                 <div class="advanced-settings">
                     <details>

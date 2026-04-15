@@ -14,7 +14,7 @@ Most converters on the market either:
 1. Charge recurring subscription fees for a relatively simple workflow.
 2. Require uploading sensitive financial data to third-party servers.
 
-**CSV2QBO** was built over a weekend to solve this. **It runs entirely in your browser.** You can literally disable your Wi-Fi before clicking "Generate" and your `.qbo` file will still download instantly. Your financial data *never* leaves your machine.
+**CSV2QBO** was built over a weekend to solve this. **It runs entirely in your browser.** Once the page is loaded, you can disconnect Wi-Fi before clicking "Generate" and your `.qbo` file will still download instantly. Your financial data *never* leaves your machine.
 
 ## 🛡️ Privacy & Security Model
 
@@ -30,8 +30,10 @@ This tool is designed to minimize data exposure:
 ## 🛠 Features
 
 - **Blazing Fast Parsing:** Powered by `PapaParse` to handle any CSV inconsistencies.
-- **Smart Auto-Mapping:** Automatically detects common column headers from major banks like Chase, Bank of America, and Amex.
+- **Smarter Real-World Header Handling:** Detects common headers from major banks like Chase, Bank of America, and Amex, including exports with summary rows before the real header.
+- **Flexible Amount Parsing:** Supports a single signed amount, separate `Debit` / `Credit` columns, and processor-style `Net` exports.
 - **Visual Mapping UI:** If your CSV uses custom columns, a clean UI lets you manually map your columns to QuickBooks' strict `[Date, Amount, Payee, Description]` requirements.
+- **Better Card Export Support:** Handles `Debit/Credit Indicator`-style exports where charges and credits are signaled in a separate column.
 - **Beautiful & Intuitive:** A clean, B2B-grade interface built for trust and utility.
 - **$0 Infrastructure:** Host it anywhere as static files.
 
@@ -44,6 +46,8 @@ Since there are no servers, dependencies, or build-steps required:
 2. Open the `src` folder and double-click `index.html` to open it in your browser.
 3. Start converting!
 
+If you want a fully offline copy on your machine, downloading the repo ZIP and opening `src/index.html` works too.
+
 ## 🌍 Quick Deployment (For Devs & Evaluation)
 This section is for developers or IT administrators who want to deploy the tool internally for their organization. 
 
@@ -55,11 +59,48 @@ npm i -g vercel
 vercel --prod
 ```
 
+## 🚚 Deployment Notes (Important)
+
+This repo has one nuance that matters in practice:
+
+- The Vercel project is linked to the **`src/` directory**, not the repository root.
+- Manual production deploys should be run from `src/`:
+  ```bash
+  cd src
+  vercel --prod
+  ```
+- Or from the repo root:
+  ```bash
+  vercel --cwd src --prod
+  ```
+- A plain Git commit + push will **not** reliably update the live site unless the Vercel dashboard project is connected to the GitHub repo and its **Root Directory** is set to `src`.
+- If you keep using CLI deploys, treat the terminal command above as the source of truth for production updates.
+
+## 🔌 Offline Use
+
+- The hosted site is now designed to cache itself after the first successful load in the browser.
+- In plain language: open it once while online, then it should keep working offline on that device for repeat visits.
+- For a guaranteed fully local copy, download the repo ZIP and open `src/index.html` directly on your machine.
+
+## 🧾 Observed CSV Header Patterns
+
+These are the real-world header shapes the project is explicitly optimized around right now:
+
+- **Chase-style checking export:** `Date`, `Description`, `Amount`, `Balance`
+- **Bank of America-style export:** `Date`, `Description`, `Amount`, `Running Bal.` and sometimes summary rows before the real header
+- **Amex / card export:** `Transaction Date`, `Posting Date`, `Billing Amount`, `Merchant Name`, `Reference Number`, `Debit/Credit Indicator`
+- **Split amount bank export:** `Date`, `Description`, `Reference`, `Debit`, `Credit`, `Balance`
+- **PayPal activity export:** `Date`, `Name`, `Type`, `Gross`, `Fee`, `Net`, `Transaction ID`, `Invoice Number`
+- **Stripe balance export:** `created`, `amount`, `fee`, `net`, `customer_name`, `description`
+
+Those examples are also reflected in `src/test_data/`.
+
 ## ⚠️ Limitations & Notes
 
 - This tool converts and formats data; users should review generated files before importing into QuickBooks.
 - Not affiliated with Intuit or QuickBooks.
 - CSV formats vary by bank; manual column mapping may still be required for non-standard exports.
+- Very unusual bank exports with separate debit and credit columns may still need normalization before conversion.
 
 ## 🤝 Contributing
 Feel free to open an issue or submit a pull request!

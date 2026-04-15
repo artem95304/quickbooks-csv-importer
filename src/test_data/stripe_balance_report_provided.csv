@@ -1,0 +1,4 @@
+created,currency,amount,fee,net,customer_email,customer_name,payment_method_type,reporting_category,description,balance_transaction_id,source_id
+2026-03-05 11:22:03,usd,120.00,3.78,116.22,alice@client.com,Alice Brown,card,charge,Order #2048,txn_1QX001,pi_3QX001
+2026-03-05 11:48:18,usd,-120.00,0.00,-120.00,alice@client.com,Alice Brown,card,refund,Refund for Order #2048,txn_1QX002,re_3QX002
+2026-03-06 08:00:00,usd,-15.90,0.00,-15.90,,,,fee,Monthly platform fee,txn_1QX003,
